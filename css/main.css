@@ -1,0 +1,39 @@
+* {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+}
+body,
+html {
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    float: left;
+}
+.app-outher {
+    float: left;
+    width: 100%;
+}
+.app-main {
+    float: left;
+    width: 100%;
+    max-width: 1400px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0px 5px;
+}
+.app-nav-outher {
+    float: left;
+    width: 100%;
+}
+.app-nav {
+    max-width: 1400px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0px 5px;
+}

@@ -31,6 +31,7 @@
                     server_include_force($data["path"]);
                 }else{
                     header('Content-Type: '.mime_content_type($data["path"]).'; charset=utf-8');
+                    readfile($data["path"]);
                 }
                 exit;
             }else{

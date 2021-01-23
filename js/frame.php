@@ -1,3 +1,5 @@
+var currentLocation = "";
+
 function contentLoader() {
     var objectLoader = ".app-loader";
     var object = document.querySelectorAll(objectLoader);
@@ -40,7 +42,21 @@ function appRedirect(href) {
     var object = document.querySelectorAll(".app-main");
     var i = 0;
     //show info
-    window.history.pushState("", "", href);
+    window.currentLocation = href;
+    window.history.pushState("", "", "/" + href);
+    //change css
+    filterCss(href);
+    //and redirect
+    href = "/ajax/req/" + href;
+    requestAndSafe(href, object, i);
+    return false;
+}
+
+function appRedirect_silent(href) {
+    var object = document.querySelectorAll(".app-main");
+    var i = 0;
+    //show info
+    window.currentLocation = href;
     //change css
     filterCss(href);
     //and redirect
@@ -83,3 +99,34 @@ function filterCss(href) {
 contentLoader();
 linkLoader();
 verifyLocation();
+
+//window referer callback
+
+window.onpopstate = function () {
+    if (window.currentLocation === document.location.pathname) {
+    } else {
+        appRedirect_silent(document.location.pathname);
+        window.currentLocation = document.location.pathname;
+    }
+};
+
+// admin js
+
+function redirectAdmin(href) {
+    var object = document.querySelectorAll(".app-main");
+    var i = 0;
+    window.history.pushState("", "", href.replace("/ajax", ""));
+    //change css
+    filterCss(href);
+    requestAndSafe(href, object, i);
+    return false;
+}
+
+window.addEventListener("keydown", function (e) {
+    if (e.ctrlKey && e.altKey) {
+        if (e.keyCode == 65 || e.keyCode == 97) {
+            var href = "/ajax/admin/";
+            redirectAdmin(href);
+        }
+    }
+});

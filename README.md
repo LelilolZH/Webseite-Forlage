@@ -180,3 +180,24 @@ Auch hier gilt es, wenn man es zuvor ohne `.php` gemacht hatte so muss man `kont
 ```
 <?php echo include_single_css(generate_Link("/css/new.css"), "kontakt/"); ?>
 ```
+
+### Js-Dateien in die Webseite einbinden
+
+#### Js-Datei für alle Seiten einbinden
+
+Grundsätzlich gibt es bereits zwei js files im Odrner `/js/`.
+Dabei wird `main.js` immer aufgerufen und `mobile.js` logischerweise nur auf mobilen geräten.
+<br>
+Möchte man jedoch eine neue js Datei hinzufügen so muss muss das mit `generate_Link();` und `include_root_js();` getan werden.
+<br>
+
+```
+<?php echo include_root_js(generate_Link("/js/new.js")); ?>
+```
+
+Dies kann dann einfach am Ende von `<head>` angefügt werden.
+Nun muss nur noch die neue js DAtei im Ordner `/js/` hinzugefügt werden und schon ist es aktiviert.
+
+#### Js-Datei auf einer Seite einbinden
+
+Dies ist nicht mmöglich, da der script nicht entfernt bzw. abrupt gestoppt werden kann.

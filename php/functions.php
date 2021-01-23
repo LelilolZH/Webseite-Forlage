@@ -69,4 +69,7 @@ if(isset($loaded)){
     function include_single_css($href, $dest){
         return '<link rel="stylesheet" type="text/css" class="single-css" href="'.$href.'" data-enable="'.$dest.'" disabled="disabled">';
     }
+    function include_root_js($href){
+        return '<script src="'.$href.'" type="text/javascript"></script>';
+    }
 ?>

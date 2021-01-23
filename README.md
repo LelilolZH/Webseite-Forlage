@@ -10,3 +10,5 @@ oder
 
 Lade die Datei als Zip herunter und entpacke sie anschliessend in den gewünschten Projektordner.
 `https://codeload.github.com/LelilolZH/Webseite-Forlage/zip/main`
+
+## Was kann dieses Starterpacket

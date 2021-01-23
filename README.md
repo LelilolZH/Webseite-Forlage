@@ -11,6 +11,11 @@ oder
 Lade die Datei als Zip herunter und entpacke sie anschliessend in den gewünschten Projektordner.
 `https://codeload.github.com/LelilolZH/Webseite-Forlage/zip/main`
 
+### Anforderungen
+
+Damit diese Webseite funktioniert wird ein Apacheserver benötigt sowie Mysqli für die Datenbank.
+Wenn man beispielsweise XAMPP nutzt so müssen diese Reposetory in den Ordner `htdocs` geclont werden.
+
 ## Funktionen
 
 ### Wie werden dateien abgerufen
@@ -26,7 +31,9 @@ für mehr Sicherheit und Kontrolle kann das file nur durch einen Token-Link abge
 <br>
 Wird das file nicht gefunden so wird ein error 404 aufgerufen.
 
-### Datenbankverbindung
+### Die Datenbank
+
+#### Datenbankverbindung
 
 Unterstützt wird MySqli.<br>
 Öffne die Datei `/php/connect.php`
@@ -38,15 +45,14 @@ $db_host = "localhost";
 $db_user = "root";
 $db_passw = "";
 $db_bank = "anisenpai";
-
 ```
 
 auf deine gewünschten Daten um.
 
-#### Datenbankstrucktur
+#### Datenbankstruktur
 
 Benötigt wird eine Tabelle mit dem Namen `file-token`.
-Diese soll folgende Strucktur aufweisen:
+Diese soll folgende Struktur aufweisen:
 <br>
 
 ```
@@ -58,7 +64,7 @@ expire -- int(11) -- utf8_unicode_ci --
 ```
 
 <br>
-Diese strucktur kann auch mit folgendem comman Importiert werden:
+Diese struktur kann auch mit folgendem comman Importiert werden:
 
 ```
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -81,6 +87,44 @@ ALTER TABLE `file-token`
 COMMIT;
 ```
 
+### Das Menu editieren
+
+Um das Menu zu ersetzen können können muss man das file `/ajax/modules/navigation.php` öffnen.
+Dort kann beliebig das neue Menu bzw. der Header generiert werden.
+
+### Eine neue Seite verknüpfen
+
+#### Datei erstellen
+
+Um eine neue Seite hinzuzufügen muss man zuerst der Datei einen namen geben.
+In diesem Beispiel würden wir kontakt.php hinzufügen wollen.
+<br>
+Dazu öffnet man den Ordner `/ajax/req/` und erstellt dort das neue File `kontakt.php`. Somit befindet sich nun das file `/ajax/req/kontakt.php` hier.
+<br>
+Möchte man jedoch nicht die Endung `.php` haben, so muss man in `/ajax/req/` einen neue Ordner erstellen mit dem namen `kontakt` und darin das File als `index.php` abspeichern. Somit würde das File sich nun hier `/ajax/req/kontakt/index.php` befinden.
+
+#### Datei verifizieren
+
+Noch ist die Datei nicht aktiv. Dazu muss zuerst die Datei in verifiziert werden.
+<br>
+Dazu öffnen man die Datei `/js/settings.js` und fügt dort in die Array die neue Datei hinzu.
+<br>
+
+```
+var links = ["home.php", "info.php"];
+
+//wird zu
+
+var links = ["home.php", "info.php", "kontakt.php"];
 ```
 
+<br>
+Hatte man zuvor die option ohne `.php` gewählt so muss man nur die Ordnerstrucktur angeben, weil die `Index.php` darin anschliessend automatisch ausgewählt wird.
+
+```
+var links = ["home.php", "info.php"];
+
+//wird zu
+
+var links = ["home.php", "info.php", "kontakt/"];
 ```

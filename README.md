@@ -39,6 +39,7 @@ Unterstützt wird MySqli.<br>
 Öffne die Datei `/php/connect.php`
 <br>
 Nun ändere die Zeilen
+<br>
 
 ```
 $db_host = "localhost";
@@ -65,6 +66,7 @@ expire -- int(11) -- utf8_unicode_ci --
 
 <br>
 Diese struktur kann auch mit folgendem comman Importiert werden:
+<br>
 
 ```
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -120,6 +122,7 @@ var links = ["home.php", "info.php", "kontakt.php"];
 
 <br>
 Hatte man zuvor die option ohne `.php` gewählt so muss man nur die Ordnerstrucktur angeben, weil die `Index.php` darin anschliessend automatisch ausgewählt wird.
+<br>
 
 ```
 var links = ["home.php", "info.php"];
@@ -128,3 +131,34 @@ var links = ["home.php", "info.php"];
 
 var links = ["home.php", "info.php", "kontakt/"];
 ```
+
+#### Datei verlinken
+
+Um die Datei nun im Menu verlinken zu können muss der Link die classe `app-link` haben.
+<br>
+
+```
+<a href="kontakt.php" class="app-link">Kontaktieren Sie uns</a>
+```
+
+Hatte man die Option ohne `.php` gewählt so muss der Absolute Pfad (ab dem Ordner `req`) angegeben.
+<br>
+
+```
+<a href="/kontakt/" class="app-link">Kontaktieren Sie uns</a>
+```
+
+### Die webseite mit css verschönern
+
+Grundsätzlich gibt es bereits zwei css files im Odrner `/css/`.
+Dabei wird `main.css` immer aufgerufen und `mobile.css` logischerweise nur auf mobilen geräten.
+<br>
+Möchte man jedoch eine neue css Datei hinzufügen so muss muss das mit `generate_Link();` getan werden.
+<br>
+
+```
+<link rel="stylesheet" type="text/css" href="<?php echo generate_Link("/css/new.css"); ?>">
+```
+
+Dies kann dann einfach am Ende von `<head>` angefügt werden.
+Nun muss nur noch die neue css DAtei im Ordner `/css/` hinzugefügt werden und schon ist es aktiviert.

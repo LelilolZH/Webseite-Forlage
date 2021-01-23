@@ -1,8 +1,10 @@
-Dies ist die Perfekte Vorlage um mit einem PHP Webseiten Projekt starten zu können.
+## Big title
+### SMall title
 
-Notes:
-How to Git Push -
-	>git add *
-	>git commit -m "first commit"
-	>git branch -M main
-	>git push -u origin main
+Normal Text
+
+`normal code`
+
+```
+code on multiple lines
+```

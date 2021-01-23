@@ -39,10 +39,26 @@ function linkLoader() {
 function appRedirect(href) {
     var object = document.querySelectorAll(".app-main");
     var i = 0;
+    window.history.pushState("", "", href);
     href = "/ajax/req/" + href;
     requestAndSafe(href, object, i);
     return false;
 }
 
+function verifyLocation() {
+    var json = window.links;
+    var res = 0;
+    json.forEach((e) => {
+        if (document.location.pathname === "/" + e) {
+            appRedirect(e);
+            res++;
+        }
+    });
+    if (res === 0) {
+        appRedirect(window.links[0]);
+    }
+}
+
 contentLoader();
 linkLoader();
+verifyLocation();

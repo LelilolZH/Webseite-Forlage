@@ -17,15 +17,16 @@
 <body style="display:none;opacity:0;">
     <div class="app-outher">
         <div class="app-nav-outher">
-            <div class="app-nav app-loader" data-src="<?php echo generate_Link("/ajax/navigation.php"); ?>">
-                Navigation here
+            <div class="app-nav app-loader" data-src="<?php echo generate_Link("/ajax/modules/navigation.php"); ?>">
+                <!-- Navigation will be here -->
             </div>
         </div>
-        <div class="app-main app-loader" data-src="<?php echo generate_Link("/ajax/req/home.php"); ?>">
-            Main content here
+        <div class="app-main app-loader">
+            <!-- Redirect will be here -->
         </div>
     </div>
     <script type="text/javascript" src="<?php echo generate_Link("/js/main.php"); ?>"></script>
+    <script type="text/javascript" src="<?php echo generate_Link("/js/settings.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo generate_Link("/js/frame.php"); ?>"></script>
 </body>
 </html>

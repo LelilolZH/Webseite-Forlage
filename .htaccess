@@ -2,11 +2,17 @@ Allow from all
 #Deny from all 
 
 RewriteEngine On
-RewriteRule ^([a-zA-Z0-9\-\_])$ /req/home_json.php [L]
+#RewriteRule ^([a-zA-Z0-9\-\_\.\?\=\&]{1,500})$ / [L]
+#Redirect everything to index.php
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
 
+#define all error pages
 ErrorDocument 404 /error/?req=404
 ErrorDocument 403 /error/?req=403
 ErrorDocument 500 /error/?req=500
 
 RewriteCond %{HTTPS} off
-#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]    #allows only request with https

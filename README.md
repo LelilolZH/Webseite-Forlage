@@ -1,10 +1,12 @@
-## Big title
-### SMall title
+## Installation
 
-Normal Text
+### Lade die Reposetory per command herunter
 
-`normal code`
+`git clone git@github.com:LelilolZH/Webseite-Forlage.git`
+oder
+`git clone https://github.com/LelilolZH/Webseite-Forlage.git`
 
-```
-code on multiple lines
-```
+### Lade die Reposetory per Zip herunter
+
+Lade die Datei als Zip herunter und entpacke sie anschliessend in den gewünschten Projektordner.
+`https://codeload.github.com/LelilolZH/Webseite-Forlage/zip/main`

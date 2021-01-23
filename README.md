@@ -23,3 +23,19 @@ für mehr Sicherheit und Kontrolle kann das file nur durch einen Token-Link abge
 `generate_Link();` generiert wird. Am ende könnte das etwa so aussehen:
 <br>
 `<link rel="stylesheet" type="text/css" href="<?php echo generate_Link("/css/main.css"); ?>">`
+<br>
+Wird das file nicht gefunden so wird ein error 404 aufgerufen.
+
+### Datenbankverbindung
+
+Öffne die Datei `/php/connect.php`
+<br>
+Nun ändere die Zeilen ```
+$db_host = "localhost";
+$db_user = "root";
+$db_passw = "";
+$db_bank = "anisenpai";
+
+```
+
+```

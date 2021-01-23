@@ -39,7 +39,11 @@ function linkLoader() {
 function appRedirect(href) {
     var object = document.querySelectorAll(".app-main");
     var i = 0;
+    //show info
     window.history.pushState("", "", href);
+    //change css
+    filterCss(href);
+    //and redirect
     href = "/ajax/req/" + href;
     requestAndSafe(href, object, i);
     return false;
@@ -56,6 +60,23 @@ function verifyLocation() {
     });
     if (res === 0) {
         appRedirect(window.links[0]);
+    }
+}
+
+function filterCss(href) {
+    var objectLoader = ".single-css";
+    var object = document.querySelectorAll(objectLoader);
+    for (var i = 0; i < object.length; i++) {
+        var src = object[i].dataset.enable;
+        if (src === undefined) {
+            continue;
+        } else {
+            if (src === href) {
+                object[i].disabled = false;
+            } else {
+                object[i].disabled = true;
+            }
+        }
     }
 }
 

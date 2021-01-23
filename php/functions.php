@@ -61,4 +61,12 @@ if(isset($loaded)){
 
         return("/get/index.php?token=".$token."&v=".WebsiteVersion);
     }
+
+    function include_root_css($href){
+        return '<link rel="stylesheet" type="text/css" href="'.$href.'">';
+    }
+
+    function include_single_css($href, $dest){
+        return '<link rel="stylesheet" type="text/css" class="single-css" href="'.$href.'" data-enable="'.$dest.'" disabled="disabled">';
+    }
 ?>

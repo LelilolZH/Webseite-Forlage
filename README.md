@@ -148,17 +148,35 @@ Hatte man die Option ohne `.php` gewählt so muss der Absolute Pfad (ab dem Ordn
 <a href="/kontakt/" class="app-link">Kontaktieren Sie uns</a>
 ```
 
-### Die webseite mit css verschönern
+### Css-Datein in die Webseite einbinden
+
+#### Css-Datei für alle Seiten einbinden
 
 Grundsätzlich gibt es bereits zwei css files im Odrner `/css/`.
 Dabei wird `main.css` immer aufgerufen und `mobile.css` logischerweise nur auf mobilen geräten.
 <br>
-Möchte man jedoch eine neue css Datei hinzufügen so muss muss das mit `generate_Link();` getan werden.
+Möchte man jedoch eine neue css Datei hinzufügen so muss muss das mit `generate_Link();` und `include_root_css();` getan werden.
 <br>
 
 ```
-<link rel="stylesheet" type="text/css" href="<?php echo generate_Link("/css/new.css"); ?>">
+<?php echo include_root_css(generate_Link("/css/new.css")); ?>
 ```
 
 Dies kann dann einfach am Ende von `<head>` angefügt werden.
 Nun muss nur noch die neue css DAtei im Ordner `/css/` hinzugefügt werden und schon ist es aktiviert.
+
+#### Css-Datei für eine einzelne Seite einbinden
+
+Möchte man jedoch eine neue css Datei die nur auf einer Seite Aktiv ist hinzufügen so muss muss das mit `generate_Link();` und `include_single_css();` getan werden. In diesem Fall würde man `new.css` nur auf kontakt.php aktivieren wollen.
+<br>
+
+```
+<?php echo include_single_css(generate_Link("/css/new.css"), "kontakt.php"); ?>
+```
+
+Auch hier gilt es, wenn man es zuvor ohne `.php` gemacht hatte so muss man `kontakt.php` durch `kontakt/` ersetzen.
+<br>
+
+```
+<?php echo include_single_css(generate_Link("/css/new.css"), "kontakt/"); ?>
+```

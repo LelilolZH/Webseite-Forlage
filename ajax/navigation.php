@@ -1,8 +1,8 @@
 <ul class="app-navigation">
     <li>
-        <a href="/home/"></a>
+        <a href="home.php" class="app-link">Home</a>
     </li>
     <li>
-        <a href="/info/"></a>
+        <a href="info.php" class="app-link">Info</a>
     </li>
 </ul>

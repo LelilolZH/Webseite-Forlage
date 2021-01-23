@@ -21,7 +21,7 @@
                 Navigation here
             </div>
         </div>
-        <div class="app-main app-loader">
+        <div class="app-main app-loader" data-src="<?php echo generate_Link("/ajax/req/home.php"); ?>">
             Main content here
         </div>
     </div>

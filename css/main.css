@@ -35,6 +35,8 @@ html {
     width: 100%;
 }
 .app-nav {
+    float: left;
+    width: 100%;
     max-width: 1400px;
     left: 50%;
     transform: translateX(-50%);
@@ -42,20 +44,22 @@ html {
 }
 /* Css */
 .app-navigation {
-    display: block;
+    float: left;
+    width: 100%;
     margin: 0px;
     padding: 0px;
     background-color: #000;
     list-style-type: none;
 }
 .app-navigation li {
-    display: inline-block;
+    float: left;
     margin: 0px;
     padding: 0px;
 }
 .app-navigation li a {
+    float: left;
     text-decoration: none;
-    color: #fff !important;
+    color: #fff;
     padding: 10px;
     margin: 0px;
 }

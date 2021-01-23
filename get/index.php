@@ -1,8 +1,6 @@
 <?php
     include($_SERVER["DOCUMENT_ROOT"]."/php/functions.php");
 
-
-
     if(isset($_GET["token"])){
         //variables
         $token = preg_replace('/[^a-z0-9]/iu', '', $_GET["token"]);
@@ -24,13 +22,17 @@
                 $ext = pathinfo($data["path"])["extension"];
                 if($ext == "css"){
                     header('Content-Type: text/css; charset=utf-8');
+                    readfile($data["path"]);
                 }else if($ext == "js"){
                     header('Content-Type: text/javascript; charset=utf-8');
+                    readfile($data["path"]);
+                }else if($ext == "php"){
+                    header('Content-Type: text/html; charset=utf-8');
+                    server_include_force($data["path"]);
                 }else{
                     header('Content-Type: '.mime_content_type($data["path"]).'; charset=utf-8');
                 }
-                
-                readfile($data["path"]);
+                exit;
             }else{
                 http_response_code(404);
                 die();

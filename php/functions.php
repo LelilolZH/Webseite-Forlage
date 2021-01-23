@@ -1,6 +1,11 @@
 <?php
+if(isset($loaded)){
+    exit("module already loaded");
+}
+    
     include($_SERVER["DOCUMENT_ROOT"]."/php/connect.php");
     include($_SERVER["DOCUMENT_ROOT"]."/php/settings.php");
+    $loaded = true;
 
     function server_include($path){
             if(file_exists($path)){

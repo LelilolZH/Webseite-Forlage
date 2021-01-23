@@ -1,3 +1,4 @@
+/* Default */
 * {
     position: relative;
     margin: 0px;
@@ -15,6 +16,8 @@ html {
     display: block;
     float: left;
 }
+
+/* App Default */
 .app-outher {
     float: left;
     width: 100%;
@@ -36,4 +39,27 @@ html {
     left: 50%;
     transform: translateX(-50%);
     padding: 0px 5px;
+}
+/* Css */
+.app-navigation {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    background-color: #000;
+    list-style-type: none;
+}
+.app-navigation li {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+.app-navigation li a {
+    text-decoration: none;
+    color: #fff !important;
+    padding: 10px;
+    margin: 0px;
+}
+.app-navigation li a:hover {
+    background-color: #fff;
+    color: #000;
 }

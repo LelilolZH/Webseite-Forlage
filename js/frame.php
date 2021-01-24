@@ -14,15 +14,22 @@ function contentLoader() {
 }
 
 function requestAndSafe(href, object, i) {
+    fadeOut();
     var req = new XMLHttpRequest();
     req.open("GET", href, true);
     req.onload = function () {
         var res = this.responseText;
         object[i].innerHTML = res;
         linkLoader();
+        lazyLoadInstance.update();
+        setTimeout(function () {
+            fadeIn();
+        }, 500);
     };
     req.onerror = function () {};
-    req.send();
+    setTimeout(function () {
+        req.send();
+    }, 300);
 }
 
 function linkLoader() {
@@ -113,6 +120,7 @@ window.onpopstate = function () {
 // admin js
 
 function redirectAdmin(href) {
+    lazyLoadInstance.update();
     var object = document.querySelectorAll(".app-main");
     var i = 0;
     window.history.pushState("", "", href.replace("/ajax", ""));
@@ -130,3 +138,15 @@ window.addEventListener("keydown", function (e) {
         }
     }
 });
+
+function fadeOut() {
+    var obj = document.querySelector(".app-main");
+    obj.style.opacity = 0;
+    obj.style.pointerEvents = "none";
+}
+
+function fadeIn() {
+    var obj = document.querySelector(".app-main");
+    obj.style.opacity = 1;
+    obj.style.pointerEvents = "unset";
+}

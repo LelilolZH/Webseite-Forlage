@@ -72,4 +72,6 @@ if(isset($loaded)){
     function include_root_js($href){
         return '<script src="'.$href.'" type="text/javascript"></script>';
     }
+
+    
 ?>

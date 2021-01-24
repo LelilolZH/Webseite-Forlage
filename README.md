@@ -201,3 +201,24 @@ Nun muss nur noch die neue js DAtei im Ordner `/js/` hinzugefügt werden und sch
 #### Js-Datei auf einer Seite einbinden
 
 Dies ist nicht mmöglich, da der script nicht entfernt bzw. abrupt gestoppt werden kann.
+
+### Bilder einbinden
+
+#### Bilder normal einbinden
+
+Die Bilder können ganz einfach mit `generate_Link();` eingebettet werden:
+<br>
+
+```
+<img src="<?php echo generate_Link("/img/wallpaper/1.jpg"); ?>" />
+```
+
+#### Bilder mit Lazy einbinden
+
+Für mehr performance empfiehlt es sich natürlich die Bilder mit Lazy einzubinden.
+Dafür muss die `class` mit `lazy` definiert sein und der Original Link im Attribut `data-src`:
+<br>
+
+```
+<img class="lazy" data-src="<?php echo generate_Link("/img/wallpaper/1.jpg"); ?>" />
+```

@@ -29,5 +29,9 @@
     <script type="text/javascript" src="<?php echo generate_Link("/js/main.php"); ?>"></script>
     <script type="text/javascript" src="<?php echo generate_Link("/js/settings.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo generate_Link("/js/frame.php"); ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.0/dist/lazyload.min.js"></script>
+    <script>
+    window.lazyLoadInstance = new LazyLoad({});
+    </script>
 </body>
 </html>

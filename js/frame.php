@@ -26,7 +26,9 @@ function requestAndSafe(href, object, i) {
             fadeIn();
         }, 500);
     };
-    req.onerror = function () {};
+    req.onerror = function () {
+        wifi_error_handler();
+    };
     setTimeout(function () {
         req.send();
     }, 300);
@@ -149,4 +151,41 @@ function fadeIn() {
     var obj = document.querySelector(".app-main");
     obj.style.opacity = 1;
     obj.style.pointerEvents = "unset";
+}
+
+function wifi_error_handler() {
+    small_message("Überprüfe deine Internet Verbindung", "red", "#fff");
+}
+
+var countMessage = 0;
+
+function small_message(message, bg, color) {
+    window.countMessage++;
+    var counter = window.countMessage;
+    var outher = document.querySelector(".app-message");
+    var obj = document.createElement("div");
+    obj.setAttribute("class", "app-boxmessage");
+    obj.setAttribute("id", "app-boxmessage-" + counter);
+
+    obj.appendChild(document.createTextNode(message));
+
+    var style = "";
+    if (bg !== undefined) {
+        style += "background-color: " + bg + " !important;";
+    }
+    if (color !== undefined) {
+        style += "color: " + color + " !important;";
+    }
+    style += "opacity: 0;";
+    obj.setAttribute("style", style);
+
+    outher.appendChild(obj);
+
+    document.querySelector("#app-boxmessage-" + counter).style.opacity = 1;
+    setTimeout(function () {
+        document.querySelector("#app-boxmessage-" + counter).style.opacity = 0;
+        setTimeout(function () {
+            document.querySelector("#app-boxmessage-" + counter).outerHTML = "";
+        }, 400);
+    }, 2000);
 }

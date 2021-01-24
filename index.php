@@ -25,6 +25,9 @@
         <div class="app-main app-loader">
             <!-- Redirect will be here -->
         </div>
+        <div class="app-message">
+        
+        </div>
     </div>
     <script type="text/javascript" src="<?php echo generate_Link("/js/main.php"); ?>"></script>
     <script type="text/javascript" src="<?php echo generate_Link("/js/settings.js"); ?>"></script>

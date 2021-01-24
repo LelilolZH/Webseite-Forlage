@@ -65,7 +65,7 @@ expire -- int(11) -- utf8_unicode_ci --
 ```
 
 <br>
-Diese struktur kann auch mit folgendem comman Importiert werden:
+Diese struktur kann auch mit folgendem command Importiert werden:
 <br>
 
 ```

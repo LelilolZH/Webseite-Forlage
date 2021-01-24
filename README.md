@@ -105,6 +105,16 @@ Dazu öffnet man den Ordner `/ajax/req/` und erstellt dort das neue File `kontak
 <br>
 Möchte man jedoch nicht die Endung `.php` haben, so muss man in `/ajax/req/` einen neue Ordner erstellen mit dem namen `kontakt` und darin das File als `index.php` abspeichern. Somit würde das File sich nun hier `/ajax/req/kontakt/index.php` befinden.
 
+#### Datei Inhalt
+
+<b>Wichtig</b> jede Seite benötigt am Anfang diese Code Zeile
+
+```
+<?php
+   include($_SERVER["DOCUMENT_ROOT"]."/php/functions.php");
+?>
+```
+
 #### Datei verifizieren
 
 Noch ist die Datei nicht aktiv. Dazu muss zuerst die Datei in verifiziert werden.

@@ -210,7 +210,7 @@ Die Bilder können ganz einfach mit `generate_Link();` eingebettet werden:
 <br>
 
 ```
-<img src="<?php echo generate_Link("/img/wallpaper/1.jpg"); ?>" />
+<img src="<?php echo generate_Link("/img/1.jpg"); ?>" />
 ```
 
 #### Bilder mit Lazy einbinden
@@ -220,5 +220,14 @@ Dafür muss die `class` mit `lazy` definiert sein und der Original Link im Attri
 <br>
 
 ```
-<img class="lazy" data-src="<?php echo generate_Link("/img/wallpaper/1.jpg"); ?>" />
+<img class="lazy" data-src="<?php echo generate_Link("/img/1.jpg"); ?>" />
+```
+
+#### Thumbnail & Original kombination mit Lazy laden
+
+Dazu muss einfach der das Attribut `src` mit dem Thumbnaillink enthalten hinzugefügt werden.
+<br>
+
+```
+<img class="lazy" src="<?php echo generate_Link("/img/1_thumbnail.jpg"); ?>" data-src="<?php echo generate_Link("/img/1.jpg"); ?>" />
 ```

@@ -187,5 +187,5 @@ function small_message(message, bg, color) {
         setTimeout(function () {
             document.querySelector("#app-boxmessage-" + counter).outerHTML = "";
         }, 400);
-    }, 2000);
+    }, 4000);
 }

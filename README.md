@@ -45,7 +45,7 @@ Nun ändere die Zeilen
 $db_host = "localhost";
 $db_user = "root";
 $db_passw = "";
-$db_bank = "anisenpai";
+$db_bank = "database";
 ```
 
 auf deine gewünschten Daten um.
